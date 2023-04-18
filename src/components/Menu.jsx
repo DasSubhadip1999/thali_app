@@ -5,7 +5,7 @@ import MenuItem from "./MenuItem";
 
 const Menu = () => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 ml-10 mt-3">
+    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 ml-20 mt-3 pb-5">
       {menuData.map((menu) => (
         <MenuItem menu={menu} key={uuidv4()} />
       ))}
