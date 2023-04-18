@@ -10,12 +10,12 @@ const CartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action) => {
-      if (state.cart.length === 6) return;
-
       const { response, quantity } = isCurrentItemInCart(
         state.cart,
         action.payload.item
       );
+
+      if (state.cart.length === 6 && !response) return;
 
       if (response) {
         state.cart = state.cart.map((cartItem) => {
