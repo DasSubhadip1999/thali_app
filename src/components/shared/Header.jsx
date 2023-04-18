@@ -1,7 +1,11 @@
 import React from "react";
 
-const Header = ({ text }) => {
-  return <header className="text-[2rem] text-center mt-8">{text}</header>;
+const Header = ({ text, mt = "4rem", my = 3 }) => {
+  return (
+    <header className={`text-[2rem] text-center `} style={{ marginTop: mt }}>
+      {text}
+    </header>
+  );
 };
 
 export default Header;

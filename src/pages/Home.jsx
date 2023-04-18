@@ -2,12 +2,19 @@ import React from "react";
 import Header from "../components/shared/Header";
 import Menu from "../components/Menu";
 import Thali from "../components/Thali";
+import { useSelector } from "react-redux";
 
 const Home = () => {
+  const { cart } = useSelector((state) => state.cart);
+
   return (
     <>
-      <Header text={"Your Thali"} />
-      <Thali />
+      {cart.length > 0 && (
+        <>
+          <Header text={"Your Thali"} mt={"4rem"} />
+          <Thali />
+        </>
+      )}
       <Header text={"Customize your Thali from our Menu"} />
       <Menu />
     </>

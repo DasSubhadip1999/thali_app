@@ -5,8 +5,10 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <nav className="flex px-10 py-3 justify-between items-center">
-      <Link to={"/"}>City Food</Link>
+    <nav className="flex px-10 py-3 justify-between items-center bg-[#fbbd23] text-[rgba(0,0,0,0.7)] w-full fixed top-0 z-30">
+      <Link to={"/"} className="font-semibold text-2xl">
+        City Food
+      </Link>
       <ul className="flex gap-4">
         <Link
           to="/"

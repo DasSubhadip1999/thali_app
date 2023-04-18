@@ -21,6 +21,9 @@ const ThaliItem = ({ menu, index }) => {
     case 4:
       position = "top-[61%] left-[15%]";
       break;
+    case 5:
+      position = "top-[37%] left-[35%]";
+      break;
   }
 
   return (
@@ -32,6 +35,9 @@ const ThaliItem = ({ menu, index }) => {
         alt={item?.name}
         className="w-full aspect-square rounded-full object-cover"
       />
+      <span className="absolute bg-[#fbbd23] w-6 h-6 grid place-items-center right-0 top-0 z-20 rounded-full text-[16px]">
+        {quantity}
+      </span>
     </div>
   );
 };
