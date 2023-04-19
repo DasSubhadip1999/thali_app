@@ -11,7 +11,7 @@ const Navbar = () => {
     location.pathname === "/checkout" ? "font-semibold" : "font-normal";
 
   return (
-    <nav className="flex px-20 py-3 justify-between items-center bg-[#fbbd23] text-[rgba(0,0,0,0.7)] w-full fixed top-0 z-30">
+    <nav className="flex px-20 print:hidden py-3 justify-between items-center bg-[#fbbd23] text-[rgba(0,0,0,0.7)] w-full fixed top-0 z-30">
       <Link to={"/"} className="font-semibold text-2xl">
         City Food
       </Link>

@@ -27,13 +27,16 @@ const Orders = () => {
   }, [order]);
 
   return (
-    <div className="bg-[#faf4e6] px-20 pt-24 pb-10">
+    <div className="bg-[#faf4e6] px-20 pt-24 print:pt-12 pb-10 print:px-10">
       <div className="bg-white w-[42rem] min-h-[34.1rem] rounded-sm mx-auto px-6 py-3">
         <div className="flex justify-between items-center">
           <div className="text-[1.7rem] text-[rgba(0,0,0,0.75)]">
             Order ID: <span>7493648093670</span>
           </div>
-          <button className="flex gap-[2px] items-center px-2 border-[1px] rounded-sm text-[rgba(0,0,0,0.8)]">
+          <button
+            className="flex gap-[2px] items-center px-2 border-[1px] rounded-sm text-[rgba(0,0,0,0.8)] print:hidden"
+            onClick={() => window.print()}
+          >
             <FaFileInvoiceDollar size={13} />
             <span className="text-[14px]">Print</span>
           </button>

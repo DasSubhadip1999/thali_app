@@ -7,7 +7,7 @@ const OrderList = () => {
   const { order } = useSelector((state) => state.cart);
 
   return (
-    <div className="mt-4 flex flex-col gap-4 max-h-[17rem] overflow-y-auto scrollbar">
+    <div className="mt-4 flex flex-col gap-4 max-h-[17rem] print:max-h-[35rem] print:overflow-hidden overflow-y-auto scrollbar">
       {order?.cart &&
         order?.cart.map((cartItem) => (
           <ListItem cartItem={cartItem} key={uuidv4()} />
