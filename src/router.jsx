@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Checkout from "./pages/Checkout";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
+import Orders from "./pages/Orders";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "checkout",
         element: <Checkout />,
+      },
+      {
+        path: "orders",
+        element: <Orders />,
       },
     ],
   },

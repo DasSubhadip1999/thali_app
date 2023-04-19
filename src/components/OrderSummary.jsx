@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import OrderItem from "./OrderItem";
 import { v4 as uuidv4 } from "uuid";
+import { toast } from "react-toastify";
+import { createOrder } from "../redux/features/CartSlice";
 
 const OrderSummary = () => {
   const [totalAmount, setTotalAmount] = useState(0);
 
-  const { cart } = useSelector((state) => state.cart);
+  const { cart, customer } = useSelector((state) => state.cart);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const amount = cart.reduce(
@@ -17,6 +21,13 @@ const OrderSummary = () => {
     );
     setTotalAmount(amount);
   }, [cart]);
+
+  const onConfirmOrder = () => {
+    if (!customer) {
+      return toast.error("Fill customer details");
+    }
+    dispatch(createOrder());
+  };
 
   return (
     <div className="w-[50%]">
@@ -34,7 +45,10 @@ const OrderSummary = () => {
                 <span>Total Amount</span>
                 <span>₹{totalAmount}</span>
               </div>
-              <button className="bg-[#fbbd23] w-full py-2">
+              <button
+                className="bg-[#fbbd23] hover:bg-[#efb115] transition-all w-full py-2"
+                onClick={onConfirmOrder}
+              >
                 Confirm Order
               </button>
             </div>

@@ -3,6 +3,8 @@ import isCurrentItemInCart from "../../utils/isCurrentItemInCart";
 
 const initialState = {
   cart: [],
+  customer: null,
+  order: null,
 };
 
 const CartSlice = createSlice({
@@ -45,8 +47,30 @@ const CartSlice = createSlice({
         });
       }
     },
+    addCustomer: (state, action) => {
+      state.customer = action.payload;
+    },
+    removeCustomer: (state, action) => {
+      state.customer = null;
+    },
+
+    createOrder: (state, action) => {
+      state.order = {
+        cart: state.cart,
+        customer: state.customer,
+      };
+
+      state.cart = [];
+      state.customer = null;
+    },
   },
 });
 
-export const { addToCart, removeFromCart } = CartSlice.actions;
+export const {
+  addToCart,
+  removeFromCart,
+  addCustomer,
+  removeCustomer,
+  createOrder,
+} = CartSlice.actions;
 export default CartSlice.reducer;

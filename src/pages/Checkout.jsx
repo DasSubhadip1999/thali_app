@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Customer from "../components/Customer";
 import OrderSummary from "../components/OrderSummary";
 

@@ -12,12 +12,7 @@ const PaymentType = () => {
           <label className={labelstyle}>Online Payment</label>
         </div>
         <div className="flex items-center gap-[3px]">
-          <input
-            type="radio"
-            name="payment"
-            checked={true}
-            className={inputstyle}
-          />
+          <input type="radio" name="payment" className={inputstyle} />
           <label className={labelstyle}>Cash Payment</label>
         </div>
       </div>
