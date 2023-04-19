@@ -5,7 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 const Navbar = () => {
   const location = useLocation();
 
-  const { cart } = useSelector((state) => state.cart);
+  const { cart, order } = useSelector((state) => state.cart);
 
   const style =
     location.pathname === "/checkout" ? "font-semibold" : "font-normal";
@@ -37,14 +37,16 @@ const Navbar = () => {
             </span>
           )}
         </Link>
-        <Link
-          to={"/orders"}
-          className={
-            location.pathname === "/orders" ? "font-semibold" : "font-normal"
-          }
-        >
-          My Orders
-        </Link>
+        {order && (
+          <Link
+            to={"/orders"}
+            className={
+              location.pathname === "/orders" ? "font-semibold" : "font-normal"
+            }
+          >
+            My Orders
+          </Link>
+        )}
       </ul>
     </nav>
   );

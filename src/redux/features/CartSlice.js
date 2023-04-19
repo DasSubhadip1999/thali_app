@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import isCurrentItemInCart from "../../utils/isCurrentItemInCart";
+import { v4 as uuidv4 } from "uuid";
 
 const initialState = {
   cart: [],
@@ -56,6 +57,7 @@ const CartSlice = createSlice({
 
     createOrder: (state, action) => {
       state.order = {
+        _id: uuidv4(),
         cart: state.cart,
         customer: state.customer,
       };

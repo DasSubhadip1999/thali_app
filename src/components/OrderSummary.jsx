@@ -4,6 +4,7 @@ import OrderItem from "./OrderItem";
 import { v4 as uuidv4 } from "uuid";
 import { toast } from "react-toastify";
 import { createOrder } from "../redux/features/CartSlice";
+import { useNavigate } from "react-router-dom";
 
 const OrderSummary = () => {
   const [totalAmount, setTotalAmount] = useState(0);
@@ -11,6 +12,7 @@ const OrderSummary = () => {
   const { cart, customer } = useSelector((state) => state.cart);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const amount = cart.reduce(
@@ -26,7 +28,13 @@ const OrderSummary = () => {
     if (!customer) {
       return toast.error("Fill customer details");
     }
+
+    if (cart.length < 2) {
+      return toast.warn("2 cart items required");
+    }
+
     dispatch(createOrder());
+    navigate("/orders");
   };
 
   return (
